@@ -26,11 +26,11 @@
         "args": [
           "--force",
           {
-            "value": "--sketch=${workspaceRoot}",
+            "value": "--sketch=${workspaceRoot}/main",
             "quoting": "strong"
           },
           {
-            "value": "--output=${workspaceRoot}/out",
+            "value": "--output=${workspaceRoot}\\out",
             "quoting": "strong"
           },
           "--run"
