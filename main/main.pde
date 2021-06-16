@@ -1,5 +1,5 @@
 
-final int NORMAL_FRAMERATE = 20;
+final int NORMAL_FRAMERATE = 30;
 final int INPUT_FRAMERATE = 120;
 
 final int WIDTH = 800;
@@ -10,8 +10,8 @@ final int INCREMENT = 10;
 final int X_CELLS = WIDTH/INCREMENT; // 80
 final int Y_CELLS = HEIGHT/INCREMENT; // 60
 
-byte[][] matrix = new byte[X_CELLS][Y_CELLS];
-byte[][] oldMatrix = new byte[X_CELLS][Y_CELLS];
+float[][] matrix = new float[X_CELLS][Y_CELLS];
+float[][] oldMatrix = new float[X_CELLS][Y_CELLS];
 
 boolean drawMode = false;
 
@@ -107,7 +107,7 @@ void draw()
 
 void updateMatrix(int x, int y)
 {    
-  float nearCount = -8;
+  float nearCount = -1;
   
   for (int w = x-1; w != x+2; w++)
   {
@@ -119,20 +119,23 @@ void updateMatrix(int x, int y)
          )
        {
          nearCount += oldMatrix[w][h];
-         if (oldMatrix[x][y] > 4 && oldMatrix[w][h] < 5)
+         if (
+           oldMatrix[x][y] > 4
+           && matrix[w][h] < 1
+         )
          {
-           matrix[w][y] ++;
+           matrix[w][y] += 0.2;
          }
        }
      }
   }
   
 
-  if (nearCount >= 15 && oldMatrix[x][y] < 5)
+  if (nearCount >= 25 && matrix[x][y] < 5)
   {
     matrix[x][y] ++;
   }
-  else if (nearCount <= 10 && oldMatrix[x][y] > 0)
+  else if (nearCount <= 24 && matrix[x][y] > 0)
   {
     matrix[x][y] --;
   }
