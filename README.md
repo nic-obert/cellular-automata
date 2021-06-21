@@ -1,2 +1,2 @@
-# expanding-blocks
-Simulation of blocky areas  expanding and contracting
+# Cellular Automata
+Simulation of space colonization based on given parameters and environment
