@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Run Sketch",
+      "label": "Run Five States",
       "type": "shell",
       "group": {
         "kind": "build",
@@ -16,17 +16,17 @@
         "panel": "dedicated"
       },
       "args": [
-		"--force",
-		"--sketch=${workspaceRoot}/main",
-		"--output=${workspaceRoot}/out",
-		"--run"
-	  ],
+        "--force",
+        "--sketch=${workspaceRoot}/five_states",
+        "--output=${workspaceRoot}/out",
+        "--run"
+      ],
       "windows": {
         "type": "process",
         "args": [
           "--force",
           {
-            "value": "--sketch=${workspaceRoot}/main",
+            "value": "--sketch=${workspaceRoot}/five_states",
             "quoting": "strong"
           },
           {
@@ -35,7 +35,45 @@
           },
           "--run"
         ]
-      }
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Binary State",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "command": "${config:processing.path}",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated"
+      },
+      "args": [
+        "--force",
+        "--sketch=${workspaceRoot}/binary_state",
+        "--output=${workspaceRoot}/out",
+        "--run"
+      ],
+      "windows": {
+        "type": "process",
+        "args": [
+          "--force",
+          {
+            "value": "--sketch=${workspaceRoot}/binary_state",
+            "quoting": "strong"
+          },
+          {
+            "value": "--output=${workspaceRoot}\\out",
+            "quoting": "strong"
+          },
+          "--run"
+        ]
+      },
+      "problemMatcher": []
     }
   ]
 }
